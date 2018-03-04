@@ -1,6 +1,4 @@
 const SHA256 = require("crypto-js/sha256");
-const fetch = require('node-fetch');
-
 
 class Block {
     constructor(index, timestamp, data, previousHash = '') {
@@ -65,18 +63,7 @@ class Blockchain{
     }
 }
 
-let drug = new Blockchain();
-console.log('Making a new drug...');
-drug.addBlock(new Block(1, new Date(), { type: "pharmaceutical laboratory" }));
-
-console.log('Sending to pharmacy.');
-console.log('Is the product a true medication?', drug.isChainValid())
-drug.addBlock(new Block(2, new Date(), { type: "pharmacy" }));
-
-console.log('Selling to user.');
-console.log('Is the product a true medication?', drug.isChainValid())
-drug.addBlock(new Block(3, new Date(), { type: "user" }));
-
-fetch('http://localhost:3000/patients')
-  .then(response => response.json())
-  .then(json => console.log(json))
+module.exports = {
+    Block: Block,
+    Blockchain: Blockchain
+}
