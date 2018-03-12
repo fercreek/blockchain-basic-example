@@ -1,4 +1,4 @@
-# Hackatour-mty
+# Blockchain Example
 
 ### How to run
 ```sh
